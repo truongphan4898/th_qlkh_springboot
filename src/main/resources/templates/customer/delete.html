@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Customer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Delete Customer</h1>
+    <h2 class="text-danger">Are you sure?</h2>
+    <p>
+        <a href="/customers" class="btn btn-primary">Customer List</a>
+    </p>
+    <form th:action="@{/customers/delete}" th:object="${customer}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">First Name:</label>
+            <div th:text="${customer.firstName}"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name:</label>
+            <div th:text="${customer.lastName}"></div>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete Customer</button>
+    </form>
+</div>
+<!-- Bootstrap 5 JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
